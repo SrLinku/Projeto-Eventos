@@ -26,6 +26,7 @@ Projeto-Eventos/<br>
 ├── js/<br>
 │   └── script.js<br>
 ├── index.html<br>
+├── localizacao.html<br>
 ├── programacao.html<br>
 └── README.md<br>
 

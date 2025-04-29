@@ -46,7 +46,7 @@ main {
   --bg-color: #0f0f1a;
   flex: 1;
   padding: 30px 20px;
-  max-width: 1000px;
+  max-width: 1600px;
   margin: 0 auto;
   animation: slideUp 0.8s ease;
 }
@@ -288,13 +288,13 @@ footer {
 /* Programação */ 
 .programacao-container {
   display: flex;
-  flex-wrap: wrap; /* para quebrar linha se precisar */
-  gap: 20px; /* espaço entre os cards */
-  justify-content: center; /* centralizar horizontalmente */
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; 
 }
 
 .programacao {
-  max-width: 900px;
+  max-width: 400px;
   margin: 60px auto;
   padding: 40px 30px;
   background-color: var(--card-bg);
@@ -357,6 +357,63 @@ footer {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   font-size: 1rem;
+}
+
+/* Localização */
+.localizacao-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.localizacao-card .info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.localizacao-card {
+  background: var(--card-bg);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: var(--text-color);
+}
+
+.localizacao-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.localizacao-card h3 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.localizacao-card p {
+  margin: 8px 0;
+}
+
+.localizacao-card .btn {
+  display: inline-block;
+  margin-top: auto;
+  padding: 8px 16px;
+  background-color: var(--accent-color);
+  color: #000;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+
+.localizacao-card .btn:hover {
+  background-color: var(--link-hover);
 }
 
 /* Responsividade */
