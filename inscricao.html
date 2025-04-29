@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventos Tech</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container-header">
+        <h1>Eventos Tech</h1>
+        <button id="menu-toggle" aria-label="Abrir menu" class="menu-icon">
+          ☰
+        </button>
+        <button
+          id="themeToggle"
+          data-tooltip="Modo Claro"
+          aria-label="Alternar tema"
+        >
+          ☀️
+        </button>
+        <nav id="nav-menu">
+          <a href="index.html">Início</a>
+          <a href="programacao.html">Programação</a>
+          <a href="palestrantes.html">Palestrantes</a>
+          <a href="localizacao.html">Localização</a>
+          <a href="inscricao.html">Inscrição</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="inscricao-container">
+        <h2>Formulário de Inscrição</h2>
+        <form id="form-inscricao">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required />
+
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required />
+
+          <fieldset>
+            <legend>Eventos disponíveis:</legend>
+            <label
+              ><input
+                type="checkbox"
+                name="eventos"
+                value="GDG Londrina Tech"
+              />
+              GDG Londrina Tech</label
+            ><br />
+            <label
+              ><input type="checkbox" name="eventos" value="Workshop de IA" />
+              Workshop de IA</label
+            ><br />
+            <label
+              ><input
+                type="checkbox"
+                name="eventos"
+                value="Painel de Carreira Dev"
+              />
+              Painel de Carreira Dev</label
+            ><br />
+            <label
+              ><input
+                type="checkbox"
+                name="eventos"
+                value="Desenvolvimento Mobile"
+              />
+              Desenvolvimento Mobile</label
+            ><br />
+          </fieldset>
+
+          <button type="submit">Inscrever-se</button>
+        </form>
+      </section>
+
+      <section class="inscricoes-ativas">
+        <h2>Meus Eventos Inscritos</h2>
+        <ul id="lista-inscricoes"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Eventos Tech. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modal de Confirmação de Cadastro -->
+    <div id="modal-confirmar" class="modal">
+      <div class="modal-content">
+        <h3>Confirmar Inscrição</h3>
+        <p id="resumo-inscricao"></p>
+        <div class="modal-actions">
+          <button id="btn-confirmar">Confirmar</button>
+          <button onclick="fecharModal('modal-confirmar')">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div id="modal-edicao" class="modal">
+      <div class="modal-content">
+        <p>Você esta editando uma inscrição!</p>
+        <div class="modal-actions">
+          <button onclick="fecharModal('modal-edicao')">Fechar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Remoção -->
+    <div id="modal-remover" class="modal">
+      <div class="modal-content">
+        <p>Tem certeza de que deseja remover esta inscrição?</p>
+        <div class="modal-actions">
+          <button id="btn-remover-sim">Sim</button>
+          <button onclick="fecharModal('modal-remover')">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
