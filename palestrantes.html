@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palestrantes - Eventos Tech</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container-header">
+        <h1>Eventos Tech</h1>
+        <button id="menu-toggle" aria-label="Abrir menu" class="menu-icon">
+          ☰
+        </button>
+        <button
+          id="themeToggle"
+          data-tooltip="Modo Claro"
+          aria-label="Alternar tema"
+        >
+          ☀️
+        </button>
+        <nav id="nav-menu">
+          <a href="index.html">Início</a>
+          <a href="programacao.html">Programação</a>
+          <a href="palestrantes.html">Palestrantes</a>
+          <a href="localizacao.html">Localização</a>
+          <a href="inscricao.html">Inscrição</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="palestrantes-section">
+        <h2>Nossos Palestrantes</h2>
+        <div class="cards-container">
+          <div class="card-palestrante">
+            <img src="images/palestrante-1.png" alt="Foto de João Souza" />
+            <h3>João Souza</h3>
+            <p>
+              Desenvolvedor Full Stack, apaixonado por educação e comunidades
+              tech.
+            </p>
+          </div>
+          <div class="card-palestrante">
+            <img src="images/palestrante-2.png" alt="Foto de Ana Silva" />
+            <h3>Ana Silva</h3>
+            <p>
+              Especialista em Inteligência Artificial com mais de 10 anos de
+              experiência.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="galeria-section" style="margin-top: 50px;">
+        <h2>Galeria de Eventos</h2>
+        <div class="galeria">
+          <button class="seta seta-esquerda">&#9664;</button>
+          <div class="galeria-imagens">
+            <img src="images/evento-1.png" alt="Evento 1" class="ativo" />
+            <img src="images/evento-2.png" alt="Evento 2" />
+          </div>
+          <button class="seta seta-direita">&#9654;</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Eventos Tech. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

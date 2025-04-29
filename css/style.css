@@ -551,7 +551,7 @@ footer {
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: var(--card-bg);
   padding: 20px;
   margin: 15% auto;
   border-radius: 8px;
@@ -580,6 +580,72 @@ footer {
   background-color: #f44336;
   color: white;
 }
+
+/* Palestrantes */
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card-palestrante {
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card-palestrante img {
+  width: 85%;
+  border-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.galeria {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.galeria-imagens {
+  width: 400px;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.galeria-imagens img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.galeria-imagens img.ativo {
+  opacity: 1;
+  position: relative;
+}
+
+.seta {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {

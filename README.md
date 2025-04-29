@@ -28,6 +28,7 @@ Projeto-Eventos/<br>
 ├── index.html<br>
 ├── inscricao.html<br>
 ├── localizacao.html<br>
+├── palestrantes.html<br>
 ├── programacao.html<br>
 └── README.md<br>
 
@@ -37,7 +38,7 @@ Projeto-Eventos/<br>
    ```bash
    git clone https://github.com/SrLinku/Projeto-Eventos.git
 
-2. Abra o arquivo index.html no seu navegador.
+2. Abra o arquivo `index.html` no seu navegador.
 
 Nenhuma instalação de dependências é necessária, pois o projeto é todo em HTML/CSS/JS puro.
 
@@ -46,6 +47,13 @@ Nenhuma instalação de dependências é necessária, pois o projeto é todo em 
 - HTML5
 - CSS3
 - JavaScript (vanilla)
+
+## 🛠️ Ferramentas e Recursos
+
+- VS Code (editor de código)
+- Git e GitHub (controle de versão e deploy)
+- GitHub Pages (hospedagem)
+- Figma (ou Canva, se usaram para protótipos)
 
 ## 🧪 Etapas do Projeto
 
@@ -68,9 +76,22 @@ Nenhuma instalação de dependências é necessária, pois o projeto é todo em 
 O site está disponível em:
 👉 https://srlinku.github.io/Projeto-Eventos/
 
+## 🏫 Instituição de Ensino
+
+Este projeto foi desenvolvido como parte das atividades do curso de Análise e Desenvolvimento de Sistemas oferecido pela Universidade Cesumar, com o objetivo de aplicar conceitos de desenvolvimento web na prática.
+
+## 🏢 Organização Promotora
+
+Os eventos divulgados neste site são promovidos pela organização fictícia **Eventos Tech**, criada para fins educacionais. 
+
+## 📚 Fontes e Referências
+
+- [MDN Web Docs](https://developer.mozilla.org/)
+- [W3Schools](https://www.w3schools.com/)
+- Exemplos e tutoriais sobre HTML, CSS e JavaScript disponíveis no YouTube e blogs educacionais.
+
 ## 👥 Autores
 
 Alexandre Gabriel de Souza Santos<br>
 Jhonatan Mendes<br>
 Lincoln Alves de Oliveira<br>
-

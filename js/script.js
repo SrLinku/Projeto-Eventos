@@ -1,78 +1,104 @@
+// Alternância de tema
 const toggleBtn = document.getElementById('themeToggle');
 const body = document.body;
 
 function updateIcon() {
   const isDark = body.classList.contains('dark');
-  toggleBtn.textContent = isDark ? '🌙' : '☀️';
-  toggleBtn.setAttribute('data-tooltip', isDark ? 'Modo Escuro' : 'Modo Claro');
+  if (toggleBtn) {
+    toggleBtn.textContent = isDark ? '🌙' : '☀️';
+    toggleBtn.setAttribute('data-tooltip', isDark ? 'Modo Escuro' : 'Modo Claro');
+  }
 }
 
-// Carrega preferência
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
   body.classList.add('dark');
 }
 updateIcon();
 
-toggleBtn.addEventListener('click', () => {
-  // Alternar tema
-  body.classList.toggle('dark');
-
-  // Salvar no localStorage
-  const theme = body.classList.contains('dark') ? 'dark' : 'light';
-  localStorage.setItem('theme', theme);
-
-  // Atualizar ícone e tooltip
-  updateIcon();
-
-  // Animação ao clicar
-  toggleBtn.classList.add('rotate');
-  setTimeout(() => toggleBtn.classList.remove('rotate'), 600);
-});
+if (toggleBtn) {
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    const theme = body.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    updateIcon();
+    toggleBtn.classList.add('rotate');
+    setTimeout(() => toggleBtn.classList.remove('rotate'), 600);
+  });
+}
 
 // Menu hambúrguer
-document.getElementById('menu-toggle').addEventListener('click', function () {
-    document.getElementById('nav-menu').classList.toggle('active');
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener('click', function () {
+    navMenu.classList.toggle('active');
   });
+}
 
-// Inscricao
+// Modal helpers
+function abrirModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) modal.style.display = 'block';
+}
+
+function fecharModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) modal.style.display = 'none';
+}
+
+// Inscrição
 let dadosPendentes = null;
 let indexParaRemover = null;
 
-document.getElementById('form-inscricao').addEventListener('submit', function(e) {
-  e.preventDefault();
+const formInscricao = document.getElementById('form-inscricao');
+if (formInscricao) {
+  formInscricao.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-  const nome = document.getElementById('nome').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const eventosSelecionados = Array.from(document.querySelectorAll('input[name="eventos"]:checked')).map(cb => cb.value);
+    const nome = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const eventosSelecionados = Array.from(document.querySelectorAll('input[name="eventos"]:checked')).map(cb => cb.value);
 
-  if (!nome || !email) {
-    alert('Preencha todos os campos.');
-    return;
-  }
+    if (!nome || !email) {
+      alert('Preencha todos os campos.');
+      return;
+    }
 
-  if (eventosSelecionados.length === 0) {
-    alert('Selecione pelo menos um evento.');
-    return;
-  }
+    if (eventosSelecionados.length === 0) {
+      alert('Selecione pelo menos um evento.');
+      return;
+    }
 
-  dadosPendentes = {
-    nome,
-    email,
-    eventos: eventosSelecionados
-  };
+    dadosPendentes = { nome, email, eventos: eventosSelecionados };
 
-  const resumo = `<strong>Nome:</strong> ${nome}<br>
-                  <strong>Email:</strong> ${email}<br>
-                  <strong>Eventos:</strong> ${eventosSelecionados.join(', ')}`;
-  document.getElementById('resumo-inscricao').innerHTML = resumo;
-  abrirModal('modal-confirmar');
-});
+    const resumo = `<strong>Nome:</strong> ${nome}<br>
+                    <strong>Email:</strong> ${email}<br>
+                    <strong>Eventos:</strong> ${eventosSelecionados.join(', ')}`;
+    const resumoEl = document.getElementById('resumo-inscricao');
+    if (resumoEl) resumoEl.innerHTML = resumo;
+
+    abrirModal('modal-confirmar');
+  });
+}
+
+const btnConfirmar = document.getElementById('btn-confirmar');
+if (btnConfirmar) {
+  btnConfirmar.addEventListener('click', function () {
+    let inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || [];
+    inscricoes.push(dadosPendentes);
+    localStorage.setItem('inscricoes', JSON.stringify(inscricoes));
+    fecharModal('modal-confirmar');
+    if (formInscricao) formInscricao.reset();
+    exibirInscricoes();
+  });
+}
 
 function exibirInscricoes() {
   const lista = document.getElementById('lista-inscricoes');
-  const inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || [];
+  if (!lista) return;
 
+  const inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || [];
   lista.innerHTML = '';
   inscricoes.forEach((insc, index) => {
     const li = document.createElement('li');
@@ -84,15 +110,6 @@ function exibirInscricoes() {
     lista.appendChild(li);
   });
 }
-
-document.getElementById('btn-confirmar').addEventListener('click', function () {
-  let inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || [];
-  inscricoes.push(dadosPendentes);
-  localStorage.setItem('inscricoes', JSON.stringify(inscricoes));
-  fecharModal('modal-confirmar');
-  document.getElementById('form-inscricao').reset();
-  exibirInscricoes();
-});
 
 function editarInscricao(index) {
   const inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || [];
@@ -116,21 +133,43 @@ function removerInscricao(index) {
   abrirModal('modal-remover');
 }
 
-document.getElementById('btn-remover-sim').addEventListener('click', function () {
-  let inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || [];
-  inscricoes.splice(indexParaRemover, 1);
-  localStorage.setItem('inscricoes', JSON.stringify(inscricoes));
-  fecharModal('modal-remover');
-  exibirInscricoes();
-});
-
-function abrirModal(id) {
-  document.getElementById(id).style.display = 'block';
+const btnRemoverSim = document.getElementById('btn-remover-sim');
+if (btnRemoverSim) {
+  btnRemoverSim.addEventListener('click', function () {
+    let inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || [];
+    inscricoes.splice(indexParaRemover, 1);
+    localStorage.setItem('inscricoes', JSON.stringify(inscricoes));
+    fecharModal('modal-remover');
+    exibirInscricoes();
+  });
 }
 
-function fecharModal(id) {
-  document.getElementById(id).style.display = 'none';
-}
-
-// Mostrar eventos inscritos ao carregar a página
+// Mostrar inscrições ao carregar
 window.addEventListener('load', exibirInscricoes);
+
+// Galeria de imagens com navegação
+document.addEventListener('DOMContentLoaded', () => {
+  const imagens = document.querySelectorAll('.galeria-imagens img');
+  const btnEsquerda = document.querySelector('.seta-esquerda');
+  const btnDireita = document.querySelector('.seta-direita');
+  let indiceAtual = 0;
+
+  if (!imagens.length || !btnEsquerda || !btnDireita) return;
+
+  function mostrarImagem(indice) {
+    imagens.forEach((img, i) => {
+      img.classList.remove('ativo');
+      if (i === indice) img.classList.add('ativo');
+    });
+  }
+
+  btnEsquerda.addEventListener('click', () => {
+    indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
+    mostrarImagem(indiceAtual);
+  });
+
+  btnDireita.addEventListener('click', () => {
+    indiceAtual = (indiceAtual + 1) % imagens.length;
+    mostrarImagem(indiceAtual);
+  });
+});
