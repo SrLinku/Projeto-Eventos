@@ -6,11 +6,6 @@ Este projeto tem como objetivo criar um site moderno e acessível para a divulga
 
 Este projeto tem como objetivo divulgar informações sobre eventos, incluindo **programação, palestrantes, localização** e **inscrições**,  oferecendo uma plataforma visualmente agradável e funcional, responsiva e com suporte ao **modo escuro/claro**.
 
-## 🖼️ Demonstração
-
-![Image](/Repository/Tela%20inicial%20modo%20claro.png)
-![Image](/Repository/Tela%20inicial%20modo%20escuro.png)
-
 ## 📌 Funcionalidades
 
 - Página inicial com destaques de eventos
@@ -30,9 +25,8 @@ Projeto-Eventos/<br>
 │   └── (Sem Imagens no momento)<br>
 ├── js/<br>
 │   └── script.js<br>
-├── Repository/<br>
-│   └── (Imagens para exibição do repositorio)<br>
 ├── index.html<br>
+├── programacao.html<br>
 └── README.md<br>
 
 ## 🚀 Como Executar

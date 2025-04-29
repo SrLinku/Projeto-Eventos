@@ -285,7 +285,79 @@ footer {
   padding: 10px 0;
 }
 
+/* Programação */ 
+.programacao-container {
+  display: flex;
+  flex-wrap: wrap; /* para quebrar linha se precisar */
+  gap: 20px; /* espaço entre os cards */
+  justify-content: center; /* centralizar horizontalmente */
+}
 
+.programacao {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px 30px;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+}
+
+.programacao h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+
+.agenda {
+  text-align: left;
+}
+
+.dia {
+  margin-bottom: 40px;
+}
+
+.dia h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+.dia h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-color); 
+  background-color: var(--card-bg);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dia h4::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #4f46e5;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.dia ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dia li {
+  background: var(--card-bg);
+  padding: 12px 16px;
+  border-left: 5px solid var(--accent-color);
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  font-size: 1rem;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
