@@ -23,17 +23,17 @@ Este projeto tem como objetivo divulgar informações sobre eventos, incluindo *
 
 ## 📂 Estrutura de Arquivos
 
-Projeto-Eventos/
-├── css/
-│   └── style.css
-├── images/
-│   └── (Sem Imagens no momento)
-├── js/
-│   └── script.js
-├── Repository/
-│   └── (Imagens para exibição do repositorio)
-├── index.html
-└── README.md
+Projeto-Eventos/<br>
+├── css/<br>
+│   └── style.css<br>
+├── images/<br>
+│   └── (Sem Imagens no momento)<br>
+├── js/<br>
+│   └── script.js<br>
+├── Repository/<br>
+│   └── (Imagens para exibição do repositorio)<br>
+├── index.html<br>
+└── README.md<br>
 
 ## 🚀 Como Executar
 
@@ -47,25 +47,25 @@ Nenhuma instalação de dependências é necessária, pois o projeto é todo em 
 
 ## 💻 Tecnologias Utilizadas
 
-HTML5
-CSS3
-JavaScript (vanilla)
+- HTML5
+- CSS3
+- JavaScript (vanilla)
 
 ## 🧪 Etapas do Projeto
 
-Planejamento e levantamento de requisitos
-Criação de wireframes/layouts
-Desenvolvimento das páginas HTML
-Estilização com CSS
-Implementação de interatividade com JS
-Testes e responsividade
-Deploy com GitHub Pages
+- Planejamento e levantamento de requisitos
+- Criação de wireframes/layouts
+- Desenvolvimento das páginas HTML
+- Estilização com CSS
+- Implementação de interatividade com JS
+- Testes e responsividade
+- Deploy com GitHub Pages
 
 ## 🔒 Acessibilidade & Segurança
 
-Uso de elementos HTML semânticos
-Contraste de cores adequado
-Estrutura clara para leitores de tela
+- Uso de elementos HTML semânticos
+- Contraste de cores adequado
+- Estrutura clara para leitores de tela
 
 ## 📦 Deploy
 
@@ -74,7 +74,7 @@ O site está disponível em:
 
 ## 👥 Autores
 
-Alexandre Gabriel de Souza Santos
-Jhonatan Mendes
-Lincoln Alves de Oliveira
+Alexandre Gabriel de Souza Santos<br>
+Jhonatan Mendes<br>
+Lincoln Alves de Oliveira<br>
 
