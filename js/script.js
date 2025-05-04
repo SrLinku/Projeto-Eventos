@@ -102,24 +102,49 @@ if (formInscricao) {
   });
 }
 
+let indiceEdicao = null;
+
 const btnConfirmar = document.getElementById('btn-confirmar');
 if (btnConfirmar) {
   btnConfirmar.addEventListener('click', function () {
     let inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || [];
-    inscricoes.push(dadosPendentes);
+
+    if (indiceEdicao !== null) {
+      // Modo edição
+      inscricoes[indiceEdicao] = dadosPendentes;
+      indiceEdicao = null;
+    } else {
+      // Novo cadastro
+      inscricoes.push(dadosPendentes);
+    }
+
     localStorage.setItem('inscricoes', JSON.stringify(inscricoes));
     fecharModal('modal-confirmar');
     if (formInscricao) formInscricao.reset();
+
+    // Restaurar texto padrão
+    document.getElementById('btn-inscrever').textContent = 'Inscrever-se';
+    document.getElementById('modal-confirmar').querySelector('h3').textContent = 'Confirmar Inscrição';
+
     exibirInscricoes();
   });
 }
 
 function exibirInscricoes() {
   const lista = document.getElementById('lista-inscricoes');
-  if (!lista) return;
+  const mensagemVazia = document.getElementById('mensagem-vazia');
+  if (!lista || !mensagemVazia) return;
 
   const inscricoes = JSON.parse(localStorage.getItem('inscricoes')) || [];
   lista.innerHTML = '';
+
+  if (inscricoes.length === 0) {
+    mensagemVazia.style.display = 'block';
+    return;
+  }
+
+  mensagemVazia.style.display = 'none';
+
   inscricoes.forEach((insc, index) => {
     const li = document.createElement('li');
     li.innerHTML = `
@@ -142,8 +167,11 @@ function editarInscricao(index) {
     cb.checked = inscricao.eventos.includes(cb.value);
   });
 
-  inscricoes.splice(index, 1);
-  localStorage.setItem('inscricoes', JSON.stringify(inscricoes));
+  // Marca que estamos editando este índice
+  indiceEdicao = index;
+
+  document.getElementById('btn-inscrever').textContent = 'Salvar alterações';
+  document.getElementById('modal-confirmar').querySelector('h3').textContent = 'Confirmar Alterações';
 
   abrirModal('modal-edicao');
 }
