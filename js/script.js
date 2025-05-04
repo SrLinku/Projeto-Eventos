@@ -47,6 +47,26 @@ function fecharModal(id) {
   if (modal) modal.style.display = 'none';
 }
 
+//Localizção
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.localizacao-card');
+
+  cards.forEach(card => {
+    const enderecoParagrafo = Array.from(card.querySelectorAll('p')).find(p => p.textContent.includes('Endereço:'));
+    const botao = card.querySelector('.btn');
+
+    if (enderecoParagrafo && botao) {
+      // Extrai só o texto do endereço (remove "Endereço:" do início)
+      const enderecoTexto = enderecoParagrafo.textContent.replace('Endereço:', '').trim();
+      const enderecoURL = encodeURIComponent(enderecoTexto);
+
+      // Atualiza o href do botão
+      botao.href = `https://www.google.com/maps/search/?api=1&query=${enderecoURL}`;
+      botao.target = '_blank';
+    }
+  });
+});
+
 // Inscrição
 let dadosPendentes = null;
 let indexParaRemover = null;
