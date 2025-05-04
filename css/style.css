@@ -257,7 +257,7 @@ nav ul li a:hover {
 
 .btn {
   background-color: var(--accent-color);
-  color: #000;
+  color: white;
   padding: 12px 20px;
   font-weight: bold;
   text-decoration: none;
@@ -405,7 +405,6 @@ footer {
   margin-top: auto;
   padding: 8px 16px;
   background-color: var(--accent-color);
-  color: #000;
   border-radius: 6px;
   text-decoration: none;
   transition: background-color 0.3s;
