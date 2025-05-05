@@ -195,29 +195,24 @@ if (btnRemoverSim) {
 // Mostrar inscrições ao carregar
 window.addEventListener('load', exibirInscricoes);
 
-// Galeria de imagens com navegação
-document.addEventListener('DOMContentLoaded', () => {
-  const imagens = document.querySelectorAll('.galeria-imagens img');
-  const btnEsquerda = document.querySelector('.seta-esquerda');
-  const btnDireita = document.querySelector('.seta-direita');
-  let indiceAtual = 0;
+const cards = document.querySelectorAll('.galeria-card');
+const btnEsquerda = document.querySelector('.seta-esquerda');
+const btnDireita = document.querySelector('.seta-direita');
 
-  if (!imagens.length || !btnEsquerda || !btnDireita) return;
+let indiceAtual = 0;
 
-  function mostrarImagem(indice) {
-    imagens.forEach((img, i) => {
-      img.classList.remove('ativo');
-      if (i === indice) img.classList.add('ativo');
-    });
-  }
-
-  btnEsquerda.addEventListener('click', () => {
-    indiceAtual = (indiceAtual - 1 + imagens.length) % imagens.length;
-    mostrarImagem(indiceAtual);
+function mostrarCard(indice) {
+  cards.forEach((card, i) => {
+    card.classList.toggle('ativo', i === indice);
   });
+}
 
-  btnDireita.addEventListener('click', () => {
-    indiceAtual = (indiceAtual + 1) % imagens.length;
-    mostrarImagem(indiceAtual);
-  });
+btnEsquerda.addEventListener('click', () => {
+  indiceAtual = (indiceAtual - 1 + cards.length) % cards.length;
+  mostrarCard(indiceAtual);
+});
+
+btnDireita.addEventListener('click', () => {
+  indiceAtual = (indiceAtual + 1) % cards.length;
+  mostrarCard(indiceAtual);
 });
